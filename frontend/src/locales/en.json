@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "hero": {
+    "title": "Custom aluminium solutions for interiors and exteriors",
+    "text": "Elegant and modern solutions for your projects.",
+    "btnProjects": "See our projects",
+    "btnContact": "Contact us"
+  },
+  "home": {
+    "expertiseTitle": "Our expertise",
+    "expertiseText": "We design premium aluminium solutions for residential and professional projects.",
+    "services": {
+      "s1": "Aluminium pergolas",
+      "s2": "Sliding glass doors",
+      "s3": "Modern facades",
+      "s4": "Custom verandas"
+    },
+    "serviceDesc": "A premium finish, excellent durability and a contemporary design.",
+    "projectsTitle": "Our projects",
+    "projectsText": "Discover a selection of projects designed with precision, elegance and expertise."
+  },
+  "contact": {
+    "title": "Contact",
+    "text": "Let’s talk about your custom aluminium project.",
+    "fullName": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Your message",
+    "send": "Send"
+  },
+  "footer": {
+    "text": "Custom aluminium joinery"
+  },
+  "about": {
+  "title": "About PROMETO",
+  "text": "PROMETO is a company based in Morocco, located in Casablanca. Specialized in metalwork, aluminum, and stainless steel, PROMETO offers complete solutions including design, manufacturing, and custom installations. Thanks to our expertise, we support our clients in creating modern, durable projects tailored to their needs."
+}
+}

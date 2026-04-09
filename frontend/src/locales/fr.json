@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "projects": "Réalisations",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "hero": {
+    "title": "Intérieurs & extérieurs sur mesure en aluminium",
+    "text": "Des solutions élégantes et modernes pour vos projets.",
+    "btnProjects": "Voir nos réalisations",
+    "btnContact": "Nous contacter"
+  },
+  "home": {
+    "expertiseTitle": "Notre expertise",
+    "expertiseText": "Nous concevons des solutions aluminium haut de gamme pour les projets résidentiels et professionnels.",
+    "services": {
+      "s1": "Pergolas aluminium",
+      "s2": "Baies vitrées",
+      "s3": "Façades modernes",
+      "s4": "Vérandas sur mesure"
+    },
+    "serviceDesc": "Une finition premium, une excellente durabilité et un design contemporain.",
+    "projectsTitle": "Nos réalisations",
+    "projectsText": "Découvrez une sélection de projets conçus avec précision, élégance et savoir-faire."
+  },
+  "contact": {
+    "title": "Contact",
+    "text": "Parlons de votre projet aluminium sur mesure.",
+    "fullName": "Nom complet",
+    "email": "Email",
+    "phone": "Téléphone",
+    "message": "Votre message",
+    "send": "Envoyer"
+  },
+  "footer": {
+    "text": "Menuiserie aluminium sur mesure"
+  },
+  "about": {
+  "title": "À propos de PROMETO",
+  "text": "PROMETO est une entreprise basée au Maroc, située à Casablanca. Spécialisée dans la menuiserie métallique, l’aluminium et l’inox, PROMETO propose des solutions complètes incluant la conception, la fabrication et l’aménagement sur mesure. Grâce à notre expertise, nous accompagnons nos clients dans la réalisation de projets modernes, durables et adaptés à leurs besoins."
+}
+}

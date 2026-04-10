@@ -32,10 +32,9 @@ function ProjectCard({ project }) {
     }}>
       <div style={{ position: 'relative' }}>
   <img
-    src={imageUrl}
-    alt={title}
-    style={{ width: '100%', height: '260px', objectFit: 'cover' }}
-  />
+  src={project.image || "/logo.png"}
+  alt={project.title}
+/>
 
   <div
     style={{

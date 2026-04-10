@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Artisan;
 use App\Models\User;
 use App\Models\Project;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+
+Route::get('/check-image', function () {
+    $path = 'projects/U7bDgj69VspKZQni7PM24iBpE8JYLQuOiqgwoMEF.jpg';
+
+    return response()->json([
+        'exists_in_public_disk' => Storage::disk('public')->exists($path),
+        'full_path' => storage_path('app/public/' . $path),
+    ]);
+});
 
 Route::get('/storage-link', function () {
     Artisan::call('storage:link');

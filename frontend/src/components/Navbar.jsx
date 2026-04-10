@@ -67,7 +67,6 @@ function Navbar() {
           <Link to="/services">{t('nav.services')}</Link>
           <Link to="/realisations">{t('nav.projects')}</Link>
           <Link to="/contact">{t('nav.contact')}</Link>
-          <Link to="/admin" className="btn btn-primary">{t('nav.admin')}</Link>
 
           <select
             value={i18n.language}

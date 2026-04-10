@@ -5,6 +5,12 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\PublicProjectController;
 use App\Http\Controllers\Api\ContactController;
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/migrate', function () {
+    Artisan::call('migrate', ['--force' => true]);
+    return 'migrated';
+});
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/projects', [PublicProjectController::class, 'index']);

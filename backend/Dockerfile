@@ -11,4 +11,4 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN composer install --no-dev --optimize-autoloader
 
-CMD php artisan serve --host=0.0.0.0 --port=8080
+CMD sh -c "php artisan storage:link || true && php artisan serve --host=0.0.0.0 --port=8080"

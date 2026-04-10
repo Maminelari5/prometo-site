@@ -58,4 +58,20 @@ Route::get('/debug-latest-image', function () {
         'public_disk_root' => config('filesystems.disks.public.root'),
         'public_disk_url' => config('filesystems.disks.public.url'),
     ]);
+    Route::get('/debug-storage', function () {
+    $dir = storage_path('app/public/projects');
+    $files = [];
+
+    if (is_dir($dir)) {
+        $files = scandir($dir);
+    }
+
+    return response()->json([
+        'storage_projects_dir' => $dir,
+        'dir_exists' => is_dir($dir),
+        'files' => $files,
+        'public_disk_root' => config('filesystems.disks.public.root'),
+        'app_url' => config('app.url'),
+    ]);
+});
 });

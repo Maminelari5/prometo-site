@@ -32,34 +32,29 @@ function ProjectCard({ project }) {
     }}>
       <div style={{ position: 'relative' }}>
   <img
-  src={project.image || "/logo.png"}
+  src={
+    project.image ||
+    "https://images.unsplash.com/photo-1503387762-592deb58ef4e"
+  }
   alt={project.title}
+  style={{
+    width: "100%",
+    height: "200px",
+    objectFit: "cover",
+    borderRadius: "16px"
+  }}
 />
 
-  <div
-    style={{
-      position: 'absolute',
-      top: '14px',
-      left: '14px',
-      background: 'rgba(255,255,255,0.88)',
-      backdropFilter: 'blur(6px)',
-      borderRadius: '12px',
-      padding: '8px 10px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      boxShadow: '0 8px 20px rgba(0,0,0,0.12)'
-    }}
-  >
-    <img
-      src="/logo.png"
-      alt="PROMETO"
-      style={{
-        width: '24px',
-        height: '24px',
-        objectFit: 'contain'
-      }}
-    />
+  <div style={{
+  position: 'absolute',
+  top: '10px',
+  left: '10px',
+  background: 'white',
+  padding: '6px 12px',
+  borderRadius: '12px',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+}}>
+  <img src="/logo.png" style={{ height: '20px' }} />
     <span
       style={{
         fontSize: '0.8rem',

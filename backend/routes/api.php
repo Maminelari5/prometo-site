@@ -41,3 +41,21 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/admin/projects/{id}', [ProjectController::class, 'update']);
     Route::delete('/admin/projects/{id}', [ProjectController::class, 'destroy']);
 });
+
+Route::get('/debug-latest-image', function () {
+    $project = Project::latest()->first();
+
+    if (!$project) {
+        return response()->json([
+            'message' => 'no project found'
+        ]);
+    }
+
+    return response()->json([
+        'project_id' => $project->id,
+        'image_from_db' => $project->image,
+        'exists_in_public_disk' => $project->image ? Storage::disk('public')->exists($project->image) : false,
+        'public_disk_root' => config('filesystems.disks.public.root'),
+        'public_disk_url' => config('filesystems.disks.public.url'),
+    ]);
+});

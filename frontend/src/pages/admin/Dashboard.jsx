@@ -103,14 +103,14 @@ function Dashboard() {
             {projects.map((project) => (
               <tr key={project.id}>
                 <td style={{ padding: '12px' }}>
-                  {project.image ? (
-                    <img
-                      src={`http://127.0.0.1:8000/storage/${project.image}`}
-                      alt=""
-                      style={{ width: '90px', height: '60px', objectFit: 'cover', borderRadius: '10px' }}
-                    />
-                  ) : '-'}
-                </td>
+  {project.image ? (
+    <img
+      src={`https://prometo-site-production.up.railway.app/storage/${project.image}`}
+      alt=""
+      style={{ width: '90px', height: '60px', objectFit: 'cover', borderRadius: '10px' }}
+    />
+  ) : '-'}
+</td>
                 <td style={{ padding: '12px' }}>{project.title_fr}</td>
                 <td style={{ padding: '12px' }}>{project.category}</td>
                 <td style={{ padding: '12px' }}>

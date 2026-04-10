@@ -28,43 +28,43 @@ function AddProject() {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  console.log('submit clicked');
+    e.preventDefault();
 
-  const data = new FormData();
+    const data = new FormData();
+    data.append('title_fr', form.title_fr || '');
+    data.append('title_en', form.title_en || '');
+    data.append('title_ar', form.title_ar || '');
+    data.append('description_fr', form.description_fr || '');
+    data.append('description_en', form.description_en || '');
+    data.append('description_ar', form.description_ar || '');
+    data.append('category', form.category || '');
+    data.append('sort_order', form.sort_order || 0);
+    data.append('is_featured', form.is_featured ? 1 : 0);
 
-  data.append('title_fr', form.title_fr || '');
-  data.append('title_en', form.title_en || '');
-  data.append('title_ar', form.title_ar || '');
-  data.append('description_fr', form.description_fr || '');
-  data.append('description_en', form.description_en || '');
-  data.append('description_ar', form.description_ar || '');
-  data.append('category', form.category || '');
-  data.append('sort_order', form.sort_order || 0);
-  data.append('is_featured', form.is_featured ? 1 : 0);
+    if (form.image) {
+      data.append('image', form.image);
+    }
 
-  if (form.image) {
-    data.append('image', form.image);
-  }
+    try {
+      await api.post('/admin/projects', data, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
 
-  try {
-    const res = await api.post('/admin/projects', data, {
-      headers: { 'Content-Type': 'multipart/form-data' }
-    });
-
-    console.log('success:', res.data);
-    alert('Projet ajouté avec succès');
-    navigate('/admin/dashboard');
-  } catch (err) {
-    console.error('ADD PROJECT ERROR:', err);
-    console.error('response data:', err.response?.data);
-    alert(JSON.stringify(err.response?.data, null, 2));
-  }
-};
+      alert('Projet ajouté avec succès');
+      navigate('/admin/dashboard');
+    } catch (err) {
+      console.error('ADD PROJECT ERROR:', err);
+      console.error('response data:', err.response?.data);
+      alert(JSON.stringify(err.response?.data, null, 2));
+    }
+  };
 
   return (
     <div className="container" style={{ padding: '50px 0' }}>
-      <h1 style={{ marginBottom: '20px', color: 'var(--primary-dark)' }}>Ajouter un projet</h1>
+      <h1 style={{ marginBottom: '20px', color: 'var(--primary-dark)' }}>
+        Ajouter un projet
+      </h1>
+
       <ProjectForm
         form={form}
         handleChange={handleChange}

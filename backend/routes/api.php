@@ -10,6 +10,11 @@ use App\Models\User;
 use App\Models\Project;
 use Illuminate\Support\Facades\Hash;
 
+Route::get('/storage-link', function () {
+    Artisan::call('storage:link');
+    return 'storage linked';
+});
+
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/projects', [PublicProjectController::class, 'index']);

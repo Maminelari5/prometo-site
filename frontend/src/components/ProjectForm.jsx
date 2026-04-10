@@ -26,18 +26,13 @@ function ProjectForm({ form, handleChange, handleFileChange, handleSubmit, butto
         <input
           type="checkbox"
           name="is_featured"
-          checked={form.is_featured}
-          onChange={(e) => handleChange({
-            target: {
-              name: 'is_featured',
-              value: e.target.checked
-            }
-          })}
+          checked={!!form.is_featured}
+          onChange={handleChange}
         />
         {' '}Projet vedette
       </label>
 
-      <input type="file" name="image" onChange={handleFileChange} style={inputStyle} />
+      <input type="file" name="image" accept="image/*" onChange={handleFileChange} style={inputStyle} />
 
       <button type="submit" className="btn btn-primary">{buttonText}</button>
     </form>

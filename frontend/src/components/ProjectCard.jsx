@@ -4,8 +4,8 @@ function ProjectCard({ project }) {
   const { i18n } = useTranslation();
 
   const imageUrl = project.image
-    ? `http://127.0.0.1:8000/storage/${project.image}`
-    : 'https://via.placeholder.com/600x400';
+    ? `https://prometo-site-production.up.railway.app/storage/${project.image}`
+    : "https://images.unsplash.com/photo-1503387762-592deb58ef4e";
 
   const currentLang = i18n.language;
 
@@ -31,55 +31,48 @@ function ProjectCard({ project }) {
       boxShadow: 'var(--shadow)'
     }}>
       <div style={{ position: 'relative' }}>
-  <img
-  src={
-    project.image ||
-    "https://images.unsplash.com/photo-1503387762-592deb58ef4e"
-  }
-  alt={project.title}
-  style={{
-    width: "100%",
-    height: "200px",
-    objectFit: "cover",
-    borderRadius: "16px"
-  }}
-/>
+        <img
+          src={imageUrl}
+          alt={title}
+          style={{ width: '100%', height: '260px', objectFit: 'cover' }}
+        />
 
-  <div
-    style={{
-      position: 'absolute',
-      top: '14px',
-      left: '14px',
-      background: 'rgba(255,255,255,0.88)',
-      backdropFilter: 'blur(6px)',
-      borderRadius: '12px',
-      padding: '8px 10px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      boxShadow: '0 8px 20px rgba(0,0,0,0.12)'
-    }}
-  >
-    <img
-      src="/logo.png"
-      alt="PROMETO"
-      style={{
-        width: '24px',
-        height: '24px',
-        objectFit: 'contain'
-      }}
-    />
-    <span
-      style={{
-        fontSize: '0.8rem',
-        fontWeight: '700',
-        color: 'var(--primary-dark)'
-      }}
-    >
-      PROMETO
-    </span>
-  </div>
-</div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '14px',
+            left: '14px',
+            background: 'rgba(255,255,255,0.88)',
+            backdropFilter: 'blur(6px)',
+            borderRadius: '12px',
+            padding: '8px 10px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            boxShadow: '0 8px 20px rgba(0,0,0,0.12)'
+          }}
+        >
+          <img
+            src="/logo.png"
+            alt="PROMETO"
+            style={{
+              width: '24px',
+              height: '24px',
+              objectFit: 'contain'
+            }}
+          />
+          <span
+            style={{
+              fontSize: '0.8rem',
+              fontWeight: '700',
+              color: 'var(--primary-dark)'
+            }}
+          >
+            PROMETO
+          </span>
+        </div>
+      </div>
+
       <div style={{ padding: '22px' }}>
         <p style={{ color: 'var(--primary)', marginBottom: '10px' }}>
           {project.category || 'Projet'}

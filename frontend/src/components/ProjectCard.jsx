@@ -1,11 +1,13 @@
 import { useTranslation } from 'react-i18next';
 
+const BACKEND_URL = 'https://prometo-site-production.up.railway.app';
+
 function ProjectCard({ project }) {
   const { i18n } = useTranslation();
 
   const imageUrl = project.image
-    ? `https://prometo-site-production.up.railway.app/storage/${project.image}`
-    : "https://images.unsplash.com/photo-1503387762-592deb58ef4e";
+    ? `${BACKEND_URL}/storage/${project.image}`
+    : 'https://images.unsplash.com/photo-1503387762-592deb58ef4e';
 
   const currentLang = i18n.language;
 
@@ -24,12 +26,14 @@ function ProjectCard({ project }) {
       : project.description_fr;
 
   return (
-    <div style={{
-      background: 'white',
-      borderRadius: '20px',
-      overflow: 'hidden',
-      boxShadow: 'var(--shadow)'
-    }}>
+    <div
+      style={{
+        background: 'white',
+        borderRadius: '20px',
+        overflow: 'hidden',
+        boxShadow: 'var(--shadow)'
+      }}
+    >
       <div style={{ position: 'relative' }}>
         <img
           src={imageUrl}

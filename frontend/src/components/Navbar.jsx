@@ -1,80 +1,103 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
 
 function Navbar() {
   const { t, i18n } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
-    localStorage.setItem('lang', lang);
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    setMenuOpen(false);
   };
 
-  useEffect(() => {
-    document.documentElement.lang = i18n.language;
-    document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
-  }, [i18n.language]);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header style={{
-      position: 'sticky',
-      top: 0,
-      zIndex: 1000,
-      background: 'rgba(255,255,255,0.92)',
-      backdropFilter: 'blur(10px)',
-      borderBottom: '1px solid var(--border)'
-    }}>
-      <div className="container" style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '18px 0'
-      }}>
+    <header
+      style={{
+        background: 'white',
+        borderBottom: '1px solid var(--border)',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1000
+      }}
+    >
+      <div
+        className="container"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '16px 0',
+          gap: '20px'
+        }}
+      >
         <Link
-  to="/"
-  style={{
-    display: 'flex',
-    alignItems: 'center',
-    gap: '10px',
-    textDecoration: 'none'
-  }}
->
-  <img
-    src="/logo.png"
-    alt="PROMETO"
-    style={{
-      width: '40px',
-      height: '40px',
-      objectFit: 'contain',
-      transition: 'transform 0.3s'
-    }}
-  />
+          to="/"
+          onClick={closeMenu}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            textDecoration: 'none',
+            flexShrink: 0
+          }}
+        >
+          <img
+            src="/logo.png"
+            alt="PROMETO"
+            style={{
+              width: '42px',
+              height: '42px',
+              objectFit: 'contain'
+            }}
+          />
+          <span
+            style={{
+              fontSize: '1.8rem',
+              fontWeight: '800',
+              color: 'var(--primary-dark)',
+              lineHeight: 1
+            }}
+          >
+            PROMETO
+          </span>
+        </Link>
 
-  <span
-    style={{
-      fontSize: '1.8rem',
-      fontWeight: '800',
-      color: 'var(--primary-dark)'
-    }}
-  >
-    PROMETO
-  </span>
-</Link>
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="mobile-menu-btn"
+          style={{
+            display: 'none',
+            background: 'transparent',
+            border: '1px solid var(--border)',
+            borderRadius: '10px',
+            padding: '8px 12px',
+            fontSize: '1.4rem',
+            cursor: 'pointer',
+            color: 'var(--primary-dark)'
+          }}
+        >
+          ☰
+        </button>
 
-        <nav style={{ display: 'flex', gap: '22px', alignItems: 'center' }}>
-          <Link to="/">{t('nav.home')}</Link>
-          <Link to="/about">{t('nav.about')}</Link>
-          <Link to="/services">{t('nav.services')}</Link>
-          <Link to="/realisations">{t('nav.projects')}</Link>
-          <Link to="/contact">{t('nav.contact')}</Link>
+        <nav className={`navbar-links ${menuOpen ? 'open' : ''}`}>
+          <Link to="/" onClick={closeMenu}>{t('nav.home')}</Link>
+          <Link to="/about" onClick={closeMenu}>{t('nav.about')}</Link>
+          <Link to="/services" onClick={closeMenu}>{t('nav.services')}</Link>
+          <Link to="/realisations" onClick={closeMenu}>{t('nav.projects')}</Link>
+          <Link to="/contact" onClick={closeMenu}>{t('nav.contact')}</Link>
 
           <select
             value={i18n.language}
             onChange={(e) => changeLanguage(e.target.value)}
             style={{
               padding: '8px 10px',
-              borderRadius: '8px',
-              border: '1px solid var(--border)'
+              borderRadius: '10px',
+              border: '1px solid var(--border)',
+              background: 'white'
             }}
           >
             <option value="fr">FR</option>
